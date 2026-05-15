@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
-// Simulación de próximos eventos - ideal importar de un CMS/API luego
+// Simulación de próximos eventos
 const EVENTOS = [
   {
     ciudad: "Rosario",
@@ -28,33 +28,54 @@ const EVENTOS = [
   },
 ];
 
-// Botón flotante para WhatsApp
-function FloatingWhatsApp() {
-  return (
-    <a
-      href="https://wa.me/tu-numero"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-[60] flex items-center gap-2 bg-[#25D366] hover:bg-[#128C7E] transition-colors text-white shadow-xl px-4 py-3 rounded-full font-bold text-base md:hidden"
-      aria-label="Contactar por WhatsApp"
-    >
-      <svg className="w-6 h-6" fill="none" viewBox="0 0 32 32">
+// Redes sociales
+const SOCIALS = [
+  {
+    name: "WhatsApp",
+    href: "https://wa.me/tu-numero",
+    color: "bg-[#25D366] hover:bg-[#128C7E]",
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 32 32">
         <circle cx="16" cy="16" r="16" fill="#25D366" />
         <path
           d="M23.8 19.6c-.4-.2-2.4-1.2-2.8-1.3s-.7-.2-1 .2-1.1 1.3-1.3 1.5c-.2.2-.5.2-.9 0s-1.6-.5-3.1-2.1c-1.1-1.1-1.8-2.4-2.1-2.9-.2-.5 0-.7.2-.9.2-.2.5-.6.8-.9.2-.3.3-.5.5-.8.2-.2.1-.4 0-.6-.1-.2-.9-2.3-1.2-3.1-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.6.1-.9.3-.3.2-1.1 1.1-1.1 2.7s1.2 3.3 1.4 3.5c.2.3 2.2 3.6 5.4 4.8.8.3 1.4.5 1.9.5.6.1 1.2 0 1.7-.4l.1-.1c.4-.5 1.3-1.2 1.4-1.5 0-.2.1-.5-.1-.7z"
           fill="#fff"
         />
       </svg>
-      WhatsApp
-    </a>
-  );
-}
+    ),
+  },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/",
+    color: "bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:brightness-110",
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 32 32">
+        <rect x="5" y="5" width="22" height="22" rx="7" fill="currentColor" />
+        <circle cx="16" cy="16" r="6" fill="#fff" />
+        <circle cx="22" cy="10" r="2" fill="#fff" />
+      </svg>
+    ),
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/",
+    color: "bg-[#0077B5] hover:bg-[#045282]",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 32 32">
+        <circle cx="16" cy="16" r="16" fill="#0077B5" />
+        <rect x="10" y="13" width="3" height="9" fill="#fff" />
+        <rect x="19" y="17" width="3" height="5" fill="#fff" />
+        <circle cx="11.5" cy="10.5" r="1.5" fill="#fff" />
+        <rect x="15" y="13" width="3" height="1.5" fill="#fff" />
+      </svg>
+    ),
+  },
+];
 
 export default function Home() {
   const { data: session } = useSession();
   const [scrolled, setScrolled] = useState(false);
 
-  // Mejor UX: Detener header antes del scroll profundo y reducir tamaño
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", handler, { passive: true });
@@ -65,10 +86,11 @@ export default function Home() {
     <div className="min-h-screen bg-[#FAF7F2] text-[#0F0F0F] font-sans antialiased">
       {/* HEADER PRINCIPAL */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10 ${scrolled
-          ? "py-2 bg-[#FAF7F2]/95 backdrop-blur-2xl border-b border-[#E8DDD0] shadow"
-          : "py-5 bg-transparent"
-          }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10 ${
+          scrolled
+            ? "py-2 bg-[#FAF7F2]/95 backdrop-blur-2xl border-b border-[#E8DDD0] shadow"
+            : "py-5 bg-transparent"
+        }`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
@@ -81,26 +103,32 @@ export default function Home() {
               className="h-9 w-auto"
             />
           </div>
-          <div className="flex items-center gap-4">
-            <a
-              href="https://wa.me/tu-numero"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 bg-[#25D366] text-white px-5 py-2.5 rounded-full text-sm font-semibold shadow-sm hover:bg-[#128C7E] transition-all"
-              aria-label="Contactar por WhatsApp"
-            >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" r="16" fill="#25D366" />
-                <path
-                  d="M23.8 19.6c-.4-.2-2.4-1.2-2.8-1.3s-.7-.2-1 .2-1.1 1.3-1.3 1.5c-.2.2-.5.2-.9 0s-1.6-.5-3.1-2.1c-1.1-1.1-1.8-2.4-2.1-2.9-.2-.5 0-.7.2-.9.2-.2.5-.6.8-.9.2-.3.3-.5.5-.8.2-.2.1-.4 0-.6-.1-.2-.9-2.3-1.2-3.1-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.6.1-.9.3-.3.2-1.1 1.1-1.1 2.7s1.2 3.3 1.4 3.5c.2.3 2.2 3.6 5.4 4.8.8.3 1.4.5 1.9.5.6.1 1.2 0 1.7-.4l.1-.1c.4-.5 1.3-1.2 1.4-1.5 0-.2.1-.5-.1-.7z"
-                  fill="#fff"
-                />
-              </svg>
-              <span className="text-base font-semibold">WhatsApp</span>
-            </a>
+          <div className="flex items-center gap-3 md:gap-4">
+            {SOCIALS.map((social) => (
+              <a
+                key={social.name}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`hidden md:flex items-center gap-2 ${social.color} text-white px-4 py-2 rounded-full text-sm font-semibold shadow-sm transition-all`}
+                aria-label={social.name}
+              >
+                {social.icon}
+                <span className="text-base font-semibold">{social.name}</span>
+              </a>
+            ))}
             {session ? (
               <div className="flex items-center gap-3">
-                <span className="text-sm font-medium hidden md:block truncate max-w-[160px]">
+                {session.user?.image && (
+                  <Image
+                    src={session.user.image}
+                    alt={session.user?.name || ""}
+                    width={36}
+                    height={36}
+                    className="rounded-full border border-[#e8ddd0] shadow-sm"
+                  />
+                )}
+                <span className="text-sm font-medium hidden md:block truncate max-w-[130px]">
                   {session.user?.name}
                 </span>
                 <button
@@ -129,7 +157,21 @@ export default function Home() {
         </div>
       </header>
 
-      <FloatingWhatsApp />
+      {/* Redes sociales móvil flotante */}
+      <div className="fixed z-50 bottom-6 right-6 flex flex-col gap-3 md:hidden">
+        {SOCIALS.map((social) => (
+          <a
+            key={social.name}
+            href={social.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${social.color} flex items-center justify-center rounded-full shadow-lg transition-all w-11 h-11`}
+            aria-label={social.name}
+          >
+            {social.icon}
+          </a>
+        ))}
+      </div>
 
       {/* HERO */}
       <section className="relative min-h-[85vh] flex flex-col items-center justify-center text-center px-6 pt-24 md:pt-28">
@@ -156,10 +198,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PRÓXIMOS ENCUENTROS */}
-      <section id="encuentros" className="py-24 px-5 md:px-7 bg-gradient-to-b from-[#FAF7F2] via-[#FBF8F4] to-[#FFF8EF]">
+      {/* PRÓXIMOS ENCUENTROS - SIEMPRE EN TRES COLUMNAS DEBAJO */}
+      <section
+        id="encuentros"
+        className="py-28 px-5 md:px-7 bg-gradient-to-b from-[#FAF7F2] via-[#FBF8F4] to-[#FFF8EF]"
+      >
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-16 uppercase tracking-widest text-[#C8873A] drop-shadow-sm">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-center mb-14 uppercase tracking-widest text-[#C8873A] drop-shadow-sm">
             Próximos Encuentros
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
