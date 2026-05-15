@@ -184,14 +184,14 @@ export default function Home() {
               <span className="text-3xl sm:text-4xl md:text-5xl text-zinc-900 tracking-tight mb-2">
                 <span className="font-black" style={{ color: nimbusBlue }}>Nimbus</span> presenta:
                 {" "}
-                <span className="inline-block font-black text-4xl sm:text-6xl md:text-7xl"
+                <span
+                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
                   style={{
                     background: "linear-gradient(90deg, #ff6d1b 10%, #ffd28d 90%)",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                     WebkitTextFillColor: "transparent"
                   }}
-                  className="ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
                 >
                   Café Seguro
                 </span>
@@ -226,14 +226,14 @@ export default function Home() {
               <span className="text-3xl sm:text-4xl md:text-5xl text-zinc-900 tracking-tight mb-2">
                 <span className="font-black" style={{ color: nimbusBlue }}>Nimbus</span> presenta:
                 {" "}
-                <span className="inline-block font-black text-4xl sm:text-6xl md:text-7xl"
+                <span
+                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
                   style={{
                     background: "linear-gradient(90deg, #ff6d1b 10%, #ffd28d 90%)",
                     WebkitBackgroundClip: "text",
                     color: "transparent",
                     WebkitTextFillColor: "transparent"
                   }}
-                  className="ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
                 >
                   Café Seguro
                 </span>
