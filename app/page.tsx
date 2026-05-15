@@ -8,8 +8,6 @@ const nimbusGreen = "#86FF6B";
 const nimbusGreenHover = "#69cc54";
 const nimbusBlue = "#0051FF";
 const nimbusGreenBorder = "#53e14b";
-
-// Color youtube oficial
 const youtubeRed = "#FF0000";
 
 export default function Home() {
@@ -51,32 +49,32 @@ export default function Home() {
 
   return (
     <main className="min-h-screen w-full bg-white text-black flex flex-col items-center px-4 py-0 font-sans">
-      {/* Header con enlaces a redes sociales */}
-      <header className="w-full flex items-center justify-between py-6 px-2 sm:px-8 bg-white">
+      {/* Header */}
+      <header className="w-full flex items-center justify-between py-6 px-2 sm:px-8 bg-white border-b border-zinc-200">
         <div className="flex items-center gap-4">
-          {/* Logo con opción invert si es blanco */}
           <a
             href="https://nimbusseguros.com"
             target="_blank"
             rel="noopener noreferrer"
           >
+            {/* Logo ajustado para blanco */}
             <img
-              src='/logo-nimbus.png'
-              alt='Nimbus Logo'
-              className='h-[6.9rem] w-auto invert hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer'
-              style={{ filter: "invert(1)" }}
+              src="/logo-nimbus.png"
+              alt="Nimbus Logo"
+              className="h-20 w-auto transition-all duration-300 cursor-pointer"
+              style={{ filter: "none", maxWidth: 256, background: "transparent" }}
             />
           </a>
         </div>
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-6">
-            {/* Redes sociales */}
+            {/* Iconos negros */}
             <a
               href="https://www.instagram.com/nimbusseguros/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-orange-600 transition-colors text-gray-800"
+              className="hover:text-orange-600 transition-colors text-black"
             >
               <svg height="26" width="26" fill="currentColor" viewBox="0 0 448 512">
                 <path d="M224,202.7A53.3,53.3,0,1,0,277.3,256,53.38,53.38,0,0,0,224,202.7Zm124.7-41a54,54,0,0,0-30.2-30.2C300,124,256.6,120,224,120s-76,.05-94.5,11.5a54,54,0,0,0-30.2,30.2C120,156,120,199.4,120,232s.05,76,11.5,94.5a54,54,0,0,0,30.2,30.2C192,388,235.4,392,268,392s76-.05,94.5-11.5a54,54,0,0,0,30.2-30.2C388,356,392,312.6,392,280S387.95,204,376.5,185.5ZM224,338.3A82.3,82.3,0,1,1,306.3,256,82.3,82.3,0,0,1,224,338.3ZM370.5,168.3A19.2,19.2,0,1,1,389.7,149.1,19.2,19.2,0,0,1,370.5,168.3Z" />
@@ -87,7 +85,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="hover:text-orange-600 transition-colors text-gray-800"
+              className="hover:text-orange-600 transition-colors text-black"
             >
               <svg height="26" width="26" fill="currentColor" viewBox="0 0 320 512">
                 <path d="M279.14 288l14.22-92.66h-88.91V127.7c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121 44.38-121 124.72v70.62H22.89V288H104.4v224h100.2V288z" />
@@ -100,7 +98,11 @@ export default function Home() {
               aria-label="WhatsApp"
               className="hover:text-orange-600 transition-colors"
             >
-              <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-xl text-base shadow-lg border border-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all">
+              <button
+                type="button"
+                style={{ width: 138, minWidth: 138, maxWidth: 138 }}
+                className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold px-4 py-2 rounded-xl text-base shadow-lg border border-green-700 focus:outline-none focus:ring-2 focus:ring-green-400 transition-all"
+              >
                 <svg width="18" height="18" fill="currentColor" viewBox="0 0 448 512">
                   <path d="M380.9 97.1C339-3.4 207.8-33.7 112.5 39.5 50.7 85.9 12.7 160.7 23.5 238.8c1.4 9.8 3.2 19.2 5.7 28.3C8.6 326.1-13.6 388.5 10.7 450.3 19 469.7 41.5 488.1 68.8 492.5c-2.1-20.9-2.9-41.6-2.7-64.7 7.6-5.3 26.7-13.4 38.9-17.5 18.3-6.1 39.3-1.8 57.2 9a223.3 223.3 0 0090.2 32c7.3 1.4 14.7 2.1 22.2 2.1 55.1 0 109.3-22.3 150-63.1 74.2-73.4 91.4-189.6 45.3-272.2zm-167.6 314.8c-29.8.4-59.1-6.4-85.2-19.4l-8.3-4.3-55.2 14.1 14.6-53.9-5.2-8.3c-12.8-20.9-20-45-20-70.9 0-79.1 64.7-142.8 144.3-142.8s144.3 63.6 144.3 142.8-64.7 142.8-144.3 142.8zm99.4-116.8c-9.2 25.3-36.5 35.9-57.6 24.1s-53.6-33-75.9-51.9c-22.9-19.7-38.6-47.7-42.5-77.1s5.3-61.1 26-84c15.3-16.2 57.3-21.2 67.7-7.5 4.8 6.3 6.5 16.4 1.1 25.7-6.1 10.4-18.1 34.5-21.2 40.2s-.4 10.9 3 13.7c2.3 1.7 7.9 6.2 17.1 13.7s21.1 17.1 26.9 20.2c5.7 3.1 9.2 4.1 13.6-2.1s15.7-19.5 19.8-25.2c4.2-5.8 8.9-6.7 15.5-4.6 12.1 3.9 38.3 15.6 43.9 17.8 6.3 2.7 11 8.2 8.8 15z"/>
                 </svg>
@@ -112,7 +114,7 @@ export default function Home() {
               <button
                 onClick={() => signIn('google')}
                 className="flex items-center gap-2 border-2 border-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-150 font-bold px-4 py-2 rounded-xl text-base shadow-orange-500/30 shadow-sm bg-white text-orange-600"
-                style={{ minWidth: 175 }}
+                style={{ width: 175, minWidth: 120, maxWidth: 200 }}
               >
                 <svg width="23" height="23" viewBox="0 0 48 48">
                   <g>
@@ -153,7 +155,7 @@ export default function Home() {
                 <button
                   onClick={() => signOut()}
                   className="mt-1 flex items-center gap-2 border-2 border-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-150 font-bold px-4 py-1 rounded-xl text-base shadow-orange-500/20 shadow-sm bg-white text-orange-600"
-                  style={{ minWidth: 120, fontSize: 15 }}
+                  style={{ width: 128, fontSize: 15, minWidth: 120, maxWidth: 128 }}
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M16 17l5-5m0 0l-5-5m5 5H9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -169,8 +171,6 @@ export default function Home() {
 
       {/* Hero */}
       <section className="flex flex-col items-center justify-center pt-14 pb-14 text-center w-full relative bg-white text-black">
-        {/* Brand Badge (vacío) */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-center md:hidden"></div>
         {session && session.user ? (
           <>
             <span className="inline-block mb-5 rounded-full bg-orange-500/10 border border-orange-500/30 px-4 py-1 text-orange-500 text-xs font-semibold uppercase tracking-wider shadow-sm">
@@ -192,20 +192,20 @@ export default function Home() {
                   Café Seguro
                 </span>
               </span>
-              <span className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-orange-400">
+              <span className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-neutral-800">
                 ¡Bienvenido{session.user.name ? `, ${session.user.name}` : ""}!
               </span>
             </h1>
-            <p className="text-xl md:text-2xl font-semibold text-orange-500 mb-5">
+            <p className="text-xl md:text-2xl font-semibold text-neutral-900 mb-5">
               En Nimbus, crecemos con vos.
             </p>
             <p
-              className="text-gray-800 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
+              className="text-neutral-900 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
               style={{ paddingBottom: "40px" }}
             >
               Encuentros exclusivos para los productores de seguros que impulsan la transformación del sector con tecnología y disrupción.
             </p>
-            <p className="text-gray-700 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
+            <p className="text-neutral-800 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
               El seguro se toma con café.<br />
               Encuentros reales para productores tecnológicos.
             </p>
@@ -232,12 +232,12 @@ export default function Home() {
               </span>
             </h1>
             <p
-              className="text-gray-800 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
+              className="text-neutral-900 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
               style={{ paddingBottom: "40px" }}
             >
               Encuentros exclusivos para los productores de seguros que impulsan la transformación del sector con tecnología y disrupción.
             </p>
-            <p className="text-gray-700 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
+            <p className="text-neutral-800 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
               El seguro se toma con café.<br />
               Encuentros reales para productores tecnológicos.
             </p>
@@ -257,24 +257,26 @@ export default function Home() {
               className="flex flex-col justify-between min-h-[285px] p-8 md:p-9 rounded-3xl bg-white border border-orange-500/20 hover:border-orange-600/85 transition-all duration-200 group shadow-md hover:shadow-orange-600/10 hover:scale-[1.025] cursor-pointer"
             >
               <div>
-                {/* Fecha */}
                 <span className="block text-sm md:text-base font-mono text-orange-600 mb-2 tracking-wider font-semibold">
                   {e.fecha}
                 </span>
-                {/* Ciudad */}
                 <h3 className="text-2xl md:text-3xl font-bold mb-3 text-black tracking-tight group-hover:text-orange-500 transition-colors duration-200">
                   {e.ciudad}
                 </h3>
-                <p className="text-gray-800 text-base md:text-lg mb-6 font-normal">{e.tema}</p>
+                <p className="text-neutral-900 text-base md:text-lg mb-6 font-normal">{e.tema}</p>
               </div>
-              {/* Botón mejorado */}
               <button
-                className="w-fit px-6 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54] focus:outline-none"
+                className="px-7 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54] focus:outline-none"
                 style={{
-                  boxShadow: "0 2px 16px 0 #86FF6B22"
+                  boxShadow: "0 2px 16px 0 #86FF6B22",
+                  width: 166,
+                  minWidth: 128,
+                  maxWidth: 166,
+                  alignSelf: "start"
                 }}
                 onMouseOver={e => (e.currentTarget.style.backgroundColor = nimbusGreenHover)}
                 onMouseOut={e => (e.currentTarget.style.backgroundColor = nimbusGreen)}
+                type="button"
               >
                 Inscribirme
               </button>
@@ -294,13 +296,12 @@ export default function Home() {
               key={idx}
               className="rounded-3xl bg-zinc-100 border border-orange-500/15 flex flex-col overflow-hidden shadow-lg"
             >
-              {/* Imagen reemplazada por fondo neutro */}
               <div className="w-full h-56 bg-zinc-200 flex items-center justify-center" />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
                   <span className="text-orange-600 font-mono text-xs mb-2 block tracking-wide font-semibold">{encuentro.fecha}</span>
                   <h3 className="text-2xl font-extrabold mb-2 text-black">{encuentro.ciudad}</h3>
-                  <p className="text-gray-800 text-base mb-4 font-normal">{encuentro.descripcion}</p>
+                  <p className="text-neutral-900 text-base mb-4 font-normal">{encuentro.descripcion}</p>
                 </div>
                 <div>
                   {encuentro.youtube && (
@@ -339,10 +340,10 @@ export default function Home() {
 
       {/* Newsletter */}
       <section className="mt-28 md:mt-32 bg-zinc-100 p-10 md:p-12 rounded-3xl border border-orange-500/30 w-full max-w-3xl text-center shadow-xl shadow-orange-400/10" style={{ boxShadow: "0 8px 42px 0 rgba(254,120,22,0.07)" }}>
-        <h2 className="text-2xl md:text-3xl font-bold mb-1 text-orange-400 tracking-tight">
+        <h2 className="text-2xl md:text-3xl font-bold mb-1 text-neutral-900 tracking-tight">
           Recibí la agenda de Café Seguro
         </h2>
-        <p className="text-gray-800 text-base font-normal mb-6">
+        <p className="text-neutral-900 text-base font-normal mb-6">
           Novedades, insights del mercado y acceso anticipado a los próximos encuentros.
         </p>
         <form
@@ -352,15 +353,15 @@ export default function Home() {
           <input
             type="email"
             placeholder="Tu email profesional"
-            className={`flex-1 bg-white border border-orange-500/20 focus:border-orange-500 text-gray-800 p-4 rounded-2xl outline-none transition-all font-medium text-base placeholder:text-gray-400 disabled:bg-zinc-100 disabled:cursor-not-allowed`}
+            className="flex-1 bg-white border border-orange-500/20 focus:border-orange-500 text-neutral-900 p-4 rounded-2xl outline-none transition-all font-medium text-base placeholder:text-zinc-500 disabled:bg-zinc-100 disabled:cursor-not-allowed"
             value={email}
             onChange={e => setEmail(e.target.value)}
             {...(session && session.user?.email ? { readOnly: true, disabled: true } : {})}
           />
           <button
             type="submit"
-            className="w-fit px-6 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54]"
-            style={{ boxShadow: "0 4px 18px 0 #86FF6B33" }}
+            className="px-7 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54]"
+            style={{ boxShadow: "0 4px 18px 0 #86FF6B33", width: 166, minWidth: 128, maxWidth: 166 }}
             onMouseOver={e => (e.currentTarget.style.backgroundColor = nimbusGreenHover)}
             onMouseOut={e => (e.currentTarget.style.backgroundColor = nimbusGreen)}
           >
@@ -372,12 +373,11 @@ export default function Home() {
       {/* Footer */}
       <footer className="w-full mt-28 text-center border-t border-orange-600/20 py-11 px-4 bg-white text-black font-light text-sm">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-2">
-          {/* Usar solo el footer logo en el footer */}
           <img
             src="/logo-nimbus.png"
             alt="Nimbus Seguros"
-            className="h-8 mb-3 invert"
-            style={{ maxWidth: 160, filter: "invert(1)" }}
+            className="h-8 mb-3"
+            style={{ maxWidth: 160, filter: "none", background: "transparent" }}
           />
           <div className="text-black">
             NIMBUS BROKER DE SEGUROS S.A. <br />
@@ -401,7 +401,7 @@ export default function Home() {
               Denuncias / Reclamos SSN
             </a>
           </div>
-          <div className="mt-2 text-xs text-gray-500">© {new Date().getFullYear()} Nimbus Broker de Seguros S.A. Todos los derechos reservados.</div>
+          <div className="mt-2 text-xs text-zinc-500">© {new Date().getFullYear()} Nimbus Broker de Seguros S.A. Todos los derechos reservados.</div>
         </div>
       </footer>
     </main>
