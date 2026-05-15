@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SECCIÓN PRINCIPAL - ENCABEZADO "CAFE SEGURO" */}
+      {/* SECCIÓN PRINCIPAL - HERO CORREGIDO: SOLO CAFE SEGURO */}
       <main style={{ paddingTop: '160px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           
@@ -49,7 +49,7 @@ export default function Home() {
             Experiencia Exclusiva
           </span>
           
-          <h1 style={{ fontSize: 'clamp(42px, 7vw, 76px)', fontWeight: '900', margin: '20px 0', lineHeight: '1.1', color: '#002D72', letterSpacing: '-0.02em' }}>
+          <h1 style={{ fontSize: 'clamp(46px, 8vw, 82px)', fontWeight: '900', margin: '20px 0', lineHeight: '1.1', color: '#002D72', letterSpacing: '-0.02em' }}>
             CAFE SEGURO
           </h1>
           
@@ -63,7 +63,7 @@ export default function Home() {
 
         </div>
 
-        {/* CONTENEDOR DE PRÓXIMOS ENCUENTROS */}
+        {/* CONTENEDOR DE PRÓXIMOS ENCUENTROS - CON NETWORKING AÑADIDO */}
         <div style={{ margin: '80px auto 20px', maxWidth: '1100px', textAlign: 'left' }}>
           <h2 style={{ fontSize: '14px', fontWeight: '800', color: '#002D72', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '30px', textAlign: 'center' }}>
             Próximos Encuentros
@@ -71,11 +71,11 @@ export default function Home() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '30px' }}>
             {[
-              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Big Data y Trazabilidad en el mercado actual.' },
-              { ciudad: 'Córdoba', fecha: '05 de septiembre, 2026', descripcion: 'Innovación en procesos de suscripción digital.' },
-              { ciudad: 'Santa Fe', fecha: '19 de septiembre, 2026', descripcion: 'Networking y transformación del productor.' }
+              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Espacio de networking, Big Data y Trazabilidad en el mercado actual.' },
+              { ciudad: 'Córdoba', fecha: '05 de septiembre, 2026', descripcion: 'Espacio de networking, innovación en procesos de suscripción digital.' },
+              { ciudad: 'Santa Fe', fecha: '19 de septiembre, 2026', descripcion: 'Espacio de networking y transformación profunda del productor.' }
             ].map((item) => (
-              <div key={item.ciudad} style={{ backgroundColor: '#FFFFFF', padding: '40px 30px', borderRadius: '24px', border: '1px solid #EAF0F6', boxShadow: '0 10px 30px rgba(0,45,114,0.04)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'between' }}>
+              <div key={item.ciudad} style={{ backgroundColor: '#FFFFFF', padding: '40px 30px', borderRadius: '24px', border: '1px solid #EAF0F6', boxShadow: '0 10px 30px rgba(0,45,114,0.04)', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
                   <p style={{ color: '#25D366', fontWeight: '700', fontSize: '13px', marginBottom: '8px', letterSpacing: '0.5px', marginTop: 0 }}>{item.fecha}</p>
                   <h3 style={{ fontSize: '34px', fontWeight: '800', color: '#002D72', marginBottom: '12px', marginTop: 0 }}>{item.ciudad}</h3>
