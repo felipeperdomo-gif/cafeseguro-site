@@ -3,17 +3,19 @@ import React, { useState, useEffect } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 
-// Definí los colores corporativos Nimbus (color verde y azul) usando variables, para fácil reutilización.
-const nimbusGreen = "#86FF6B"; // Este es el verde lima used en la web Nimbus para los call-to-action.
+// Colores corporativos
+const nimbusGreen = "#86FF6B";
 const nimbusGreenHover = "#69cc54";
-const nimbusBlue = "#0051FF"; // Azul oficial Nimbus.
+const nimbusBlue = "#0051FF";
 const nimbusGreenBorder = "#53e14b";
+
+// Color youtube oficial
+const youtubeRed = "#FF0000";
 
 export default function Home() {
   const { data: session } = useSession();
   const [email, setEmail] = useState("");
 
-  // Si el usuario inicia sesión, setea el email automáticamente
   useEffect(() => {
     if (session && session.user?.email) {
       setEmail(session.user.email);
@@ -26,13 +28,12 @@ export default function Home() {
     { ciudad: "Córdoba", fecha: "19 Septiembre", tema: "Optimización de Costos" }
   ];
 
-  // Remplazo de las imágenes con un fondo gris oscuro bg-zinc-900 para evitar errores 404
   const encuentrosAnteriores = [
     {
       ciudad: "Posadas",
       fecha: "10 Mayo 2026",
       descripcion: "Último encuentro realizado en el Hotel Julio Cesar, con productores de la región y enfoque en innovación y networking.",
-      youtube: "" // Puedes agregar el link si hay video disponible
+      youtube: "",
     },
     {
       ciudad: "Paraná",
@@ -49,11 +50,11 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen w-full bg-white text-[#101013] flex flex-col items-center px-4 py-0 font-sans">
+    <main className="min-h-screen w-full bg-white text-black flex flex-col items-center px-4 py-0 font-sans">
       {/* Header con enlaces a redes sociales */}
-      <header className="w-full flex items-center justify-between py-6 px-2 sm:px-8 bg-transparent">
+      <header className="w-full flex items-center justify-between py-6 px-2 sm:px-8 bg-white">
         <div className="flex items-center gap-4">
-          {/* Logo principal de la empresa, único logo en el header y ahora 15% más grande */}
+          {/* Logo con opción invert si es blanco */}
           <a
             href="https://nimbusseguros.com"
             target="_blank"
@@ -62,7 +63,8 @@ export default function Home() {
             <img
               src='/logo-nimbus.png'
               alt='Nimbus Logo'
-              className='h-[6.9rem] w-auto brightness-0 invert hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer'
+              className='h-[6.9rem] w-auto invert hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer'
+              style={{ filter: "invert(1)" }}
             />
           </a>
         </div>
@@ -74,7 +76,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              className="hover:text-orange-600 transition-colors"
+              className="hover:text-orange-600 transition-colors text-gray-800"
             >
               <svg height="26" width="26" fill="currentColor" viewBox="0 0 448 512">
                 <path d="M224,202.7A53.3,53.3,0,1,0,277.3,256,53.38,53.38,0,0,0,224,202.7Zm124.7-41a54,54,0,0,0-30.2-30.2C300,124,256.6,120,224,120s-76,.05-94.5,11.5a54,54,0,0,0-30.2,30.2C120,156,120,199.4,120,232s.05,76,11.5,94.5a54,54,0,0,0,30.2,30.2C192,388,235.4,392,268,392s76-.05,94.5-11.5a54,54,0,0,0,30.2-30.2C388,356,392,312.6,392,280S387.95,204,376.5,185.5ZM224,338.3A82.3,82.3,0,1,1,306.3,256,82.3,82.3,0,0,1,224,338.3ZM370.5,168.3A19.2,19.2,0,1,1,389.7,149.1,19.2,19.2,0,0,1,370.5,168.3Z" />
@@ -85,7 +87,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
-              className="hover:text-orange-600 transition-colors"
+              className="hover:text-orange-600 transition-colors text-gray-800"
             >
               <svg height="26" width="26" fill="currentColor" viewBox="0 0 320 512">
                 <path d="M279.14 288l14.22-92.66h-88.91V127.7c0-25.35 12.42-50.06 52.24-50.06H293V6.26S259.5 0 225.36 0c-73.22 0-121 44.38-121 124.72v70.62H22.89V288H104.4v224h100.2V288z" />
@@ -105,7 +107,6 @@ export default function Home() {
                 WhatsApp
               </button>
             </a>
-
             {/* ACCESO PRODUCTOR */}
             {!session ? (
               <button
@@ -129,7 +130,6 @@ export default function Home() {
                 style={{ minWidth: 175 }}
               >
                 <div className="flex items-center gap-3 px-4 py-2 bg-zinc-100 rounded-xl shadow shadow-orange-300/10 border-2 border-orange-600/40">
-                  {/* Avatar de usuario o ícono por defecto */}
                   {session.user?.image ? (
                     <Image
                       src={session.user.image}
@@ -168,24 +168,20 @@ export default function Home() {
       </header>
 
       {/* Hero */}
-      <section className="flex flex-col items-center justify-center pt-14 pb-14 text-center w-full relative bg-white">
-        {/* Brand Badge */}
-        <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-center md:hidden">
-          {/* Logo removido aquí porque ahora solo va a la izquierda en el header */}
-        </div>
+      <section className="flex flex-col items-center justify-center pt-14 pb-14 text-center w-full relative bg-white text-black">
+        {/* Brand Badge (vacío) */}
+        <div className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-center md:hidden"></div>
         {session && session.user ? (
           <>
-            {/* Etiqueta exclusiva */}
-            <span className="inline-block mb-5 rounded-full bg-orange-500/10 border border-orange-500/30 px-4 py-1 text-orange-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
+            <span className="inline-block mb-5 rounded-full bg-orange-500/10 border border-orange-500/30 px-4 py-1 text-orange-500 text-xs font-semibold uppercase tracking-wider shadow-sm">
               EXPERIENCIA EXCLUSIVA
             </span>
-            {/* Branding unificado */}
             <h1 className="font-black flex flex-col items-center gap-2 mb-4">
-              <span className="text-3xl sm:text-4xl md:text-5xl text-zinc-900 tracking-tight mb-2">
-                <span className="font-black" style={{ color: nimbusBlue }}>Nimbus</span> presenta:
-                {" "}
+              <span className="text-3xl sm:text-4xl md:text-5xl text-black tracking-tight mb-2">
+                <span className="font-black" style={{ color: nimbusBlue }}>Nimbus</span>{" "}
+                presenta:
                 <span
-                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
+                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2"
                   style={{
                     background: "linear-gradient(90deg, #ff6d1b 10%, #ffd28d 90%)",
                     WebkitBackgroundClip: "text",
@@ -196,38 +192,34 @@ export default function Home() {
                   Café Seguro
                 </span>
               </span>
-              {/* Saludo usuario - cálido pero de menor tamaño */}
-              <span className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-orange-400 drop-shadow-[0_2px_8px_rgba(255,102,0,0.12)]">
+              <span className="mt-2 text-lg sm:text-xl md:text-2xl font-semibold text-orange-400">
                 ¡Bienvenido{session.user.name ? `, ${session.user.name}` : ""}!
               </span>
             </h1>
-            {/* Frase Nimbus */}
             <p className="text-xl md:text-2xl font-semibold text-orange-500 mb-5">
               En Nimbus, crecemos con vos.
             </p>
             <p
-              className="text-zinc-700 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide drop-shadow-[0_2px_10px_rgba(255,102,0,0.13)] mb-8"
+              className="text-gray-800 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
               style={{ paddingBottom: "40px" }}
             >
               Encuentros exclusivos para los productores de seguros que impulsan la transformación del sector con tecnología y disrupción.
             </p>
-            <p className="text-zinc-600 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
+            <p className="text-gray-700 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
               El seguro se toma con café.<br />
               Encuentros reales para productores tecnológicos.
             </p>
           </>
         ) : (
           <>
-            {/* Branding unificado para no autenticados */}
-            <span className="inline-block mb-6 rounded-full bg-orange-500/10 border border-orange-500/30 px-4 py-1 text-orange-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
+            <span className="inline-block mb-6 rounded-full bg-orange-500/10 border border-orange-500/30 px-4 py-1 text-orange-500 text-xs font-semibold uppercase tracking-wider shadow-sm">
               EXPERIENCIA EXCLUSIVA
             </span>
             <h1 className="font-black flex flex-col items-center gap-2 mb-3">
-              <span className="text-3xl sm:text-4xl md:text-5xl text-zinc-900 tracking-tight mb-2">
+              <span className="text-3xl sm:text-4xl md:text-5xl text-black tracking-tight mb-2">
                 <span className="font-black" style={{ color: nimbusBlue }}>Nimbus</span> presenta:
-                {" "}
                 <span
-                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2 drop-shadow-[0_2px_14px_rgba(255,102,0,0.13)]"
+                  className="inline-block font-black text-4xl sm:text-6xl md:text-7xl ml-2"
                   style={{
                     background: "linear-gradient(90deg, #ff6d1b 10%, #ffd28d 90%)",
                     WebkitBackgroundClip: "text",
@@ -240,12 +232,12 @@ export default function Home() {
               </span>
             </h1>
             <p
-              className="text-zinc-700 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide drop-shadow-[0_2px_10px_rgba(255,102,0,0.13)] mb-8"
+              className="text-gray-800 max-w-3xl mx-auto text-2xl md:text-3xl font-semibold leading-snug tracking-wide mb-8"
               style={{ paddingBottom: "40px" }}
             >
               Encuentros exclusivos para los productores de seguros que impulsan la transformación del sector con tecnología y disrupción.
             </p>
-            <p className="text-zinc-600 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide drop-shadow-[0_2px_10px_rgba(0,0,0,0.10)]">
+            <p className="text-gray-700 max-w-3xl mx-auto text-lg md:text-xl leading-snug font-light pb-6 tracking-wide">
               El seguro se toma con café.<br />
               Encuentros reales para productores tecnológicos.
             </p>
@@ -255,32 +247,31 @@ export default function Home() {
 
       {/* Próximos Encuentros */}
       <section className="w-full max-w-6xl mx-auto bg-white">
-        <h2 className="text-3xl md:text-4xl mb-10 font-extrabold text-zinc-900 tracking-tight text-center">
+        <h2 className="text-3xl md:text-4xl mb-10 font-extrabold text-black tracking-tight text-center">
           Próximos Encuentros
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
           {eventos.map((e, i) => (
             <div
               key={i}
-              className="flex flex-col justify-between min-h-[285px] p-8 md:p-9 rounded-3xl bg-white border border-orange-500/15 hover:border-orange-600/85 transition-all duration-200 group shadow-lg hover:shadow-orange-600/10 hover:scale-[1.025] cursor-pointer"
+              className="flex flex-col justify-between min-h-[285px] p-8 md:p-9 rounded-3xl bg-white border border-orange-500/20 hover:border-orange-600/85 transition-all duration-200 group shadow-md hover:shadow-orange-600/10 hover:scale-[1.025] cursor-pointer"
             >
               <div>
-                <span className="text-orange-600 font-mono text-xs md:text-sm mb-2 opacity-95 inline-block tracking-wider drop-shadow-[0_2px_3px_rgba(255,102,0,0.06)]">
+                {/* Fecha */}
+                <span className="block text-sm md:text-base font-mono text-orange-600 mb-2 tracking-wider font-semibold">
                   {e.fecha}
                 </span>
-                <h3 className="text-3xl font-bold mb-3 text-zinc-900 tracking-tight group-hover:text-orange-400 transition-colors duration-200">
+                {/* Ciudad */}
+                <h3 className="text-2xl md:text-3xl font-bold mb-3 text-black tracking-tight group-hover:text-orange-500 transition-colors duration-200">
                   {e.ciudad}
                 </h3>
-                <p className="text-zinc-600 text-lg md:text-xl mb-8 font-light">{e.tema}</p>
+                <p className="text-gray-800 text-base md:text-lg mb-6 font-normal">{e.tema}</p>
               </div>
-              {/* Cambié color fondo a nimbusGreen y texto a negro */}
+              {/* Botón mejorado */}
               <button
-                className="w-full py-3 rounded-xl font-bold text-base tracking-wide border-2 transition-all duration-150 outline-none focus:ring-2 shadow-[#00000033] shadow-sm group-hover:ring-4"
+                className="w-fit px-6 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54] focus:outline-none"
                 style={{
-                  backgroundColor: nimbusGreen,
-                  color: "#101013",
-                  borderColor: nimbusGreenBorder,
-                  boxShadow: "0 2px 16px 0 #86FF6B22",
+                  boxShadow: "0 2px 16px 0 #86FF6B22"
                 }}
                 onMouseOver={e => (e.currentTarget.style.backgroundColor = nimbusGreenHover)}
                 onMouseOut={e => (e.currentTarget.style.backgroundColor = nimbusGreen)}
@@ -294,7 +285,7 @@ export default function Home() {
 
       {/* Encuentros Anteriores */}
       <section className="w-full max-w-6xl mx-auto mt-28 md:mt-32 bg-white">
-        <h2 className="text-3xl md:text-4xl mb-10 font-extrabold text-zinc-900 tracking-tight text-center">
+        <h2 className="text-3xl md:text-4xl mb-10 font-extrabold text-black tracking-tight text-center">
           Encuentros Anteriores
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -303,13 +294,13 @@ export default function Home() {
               key={idx}
               className="rounded-3xl bg-zinc-100 border border-orange-500/15 flex flex-col overflow-hidden shadow-lg"
             >
-              {/* Imagen reemplazada por un fondo gris claro */}
+              {/* Imagen reemplazada por fondo neutro */}
               <div className="w-full h-56 bg-zinc-200 flex items-center justify-center" />
               <div className="p-6 flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-orange-500 font-mono text-xs mb-2 block tracking-wide">{encuentro.fecha}</span>
-                  <h3 className="text-2xl font-bold mb-2 text-zinc-900">{encuentro.ciudad}</h3>
-                  <p className="text-zinc-600 text-base mb-4 font-light">{encuentro.descripcion}</p>
+                  <span className="text-orange-600 font-mono text-xs mb-2 block tracking-wide font-semibold">{encuentro.fecha}</span>
+                  <h3 className="text-2xl font-extrabold mb-2 text-black">{encuentro.ciudad}</h3>
+                  <p className="text-gray-800 text-base mb-4 font-normal">{encuentro.descripcion}</p>
                 </div>
                 <div>
                   {encuentro.youtube && (
@@ -317,9 +308,9 @@ export default function Home() {
                       href={encuentro.youtube}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 transition-colors font-semibold"
+                      className="inline-flex items-center gap-2 text-black hover:text-blue-700 transition-colors font-semibold underline"
                     >
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-6 h-6" fill={youtubeRed} viewBox="0 0 24 24">
                         <path d="M23.498 6.186c-.273-1.037-1.088-1.852-2.126-2.125C19.293 3.5 12 3.5 12 3.5s-7.293 0-9.372.561c-1.038.273-1.852 1.088-2.126 2.125C.5 8.265.5 12 .5 12s0 3.735.502 5.814c.273 1.037 1.088 1.852 2.126 2.126C4.707 20.5 12 20.5 12 20.5s7.293 0 9.372-.561c1.038-.273 1.852-1.088 2.126-2.126C23.5 15.735 23.5 12 23.5 12s0-3.735-.002-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z" />
                       </svg>
                       Ver en YouTube
@@ -336,9 +327,9 @@ export default function Home() {
             href="https://www.youtube.com/@NimbusBroker"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-orange-500 hover:text-orange-400 underline font-bold text-xl transition-all"
+            className="inline-flex items-center gap-2 text-black hover:text-blue-700 underline font-bold text-xl transition-all"
           >
-            <svg className="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
+            <svg className="w-7 h-7" fill={youtubeRed} viewBox="0 0 24 24">
               <path d="M23.498 6.186c-.273-1.037-1.088-1.852-2.126-2.125C19.293 3.5 12 3.5 12 3.5s-7.293 0-9.372.561c-1.038.273-1.852 1.088-2.126 2.125C.5 8.265.5 12 .5 12s0 3.735.502 5.814c.273 1.037 1.088 1.852 2.126 2.126C4.707 20.5 12 20.5 12 20.5s7.293 0 9.372-.561c1.038-.273 1.852-1.088 2.126-2.126C23.5 15.735 23.5 12 23.5 12s0-3.735-.002-5.814zM9.75 15.568V8.432L15.818 12l-6.068 3.568z" />
             </svg>
             Ver todos los encuentros en nuestro canal de YouTube
@@ -351,7 +342,7 @@ export default function Home() {
         <h2 className="text-2xl md:text-3xl font-bold mb-1 text-orange-400 tracking-tight">
           Recibí la agenda de Café Seguro
         </h2>
-        <p className="text-zinc-700 text-base font-normal mb-6">
+        <p className="text-gray-800 text-base font-normal mb-6">
           Novedades, insights del mercado y acceso anticipado a los próximos encuentros.
         </p>
         <form
@@ -361,21 +352,15 @@ export default function Home() {
           <input
             type="email"
             placeholder="Tu email profesional"
-            className={`flex-1 bg-white border border-orange-500/20 focus:border-orange-500 text-zinc-700 p-4 rounded-2xl outline-none transition-all font-medium text-base placeholder:text-zinc-400 disabled:bg-zinc-100 disabled:cursor-not-allowed`}
+            className={`flex-1 bg-white border border-orange-500/20 focus:border-orange-500 text-gray-800 p-4 rounded-2xl outline-none transition-all font-medium text-base placeholder:text-gray-400 disabled:bg-zinc-100 disabled:cursor-not-allowed`}
             value={email}
             onChange={e => setEmail(e.target.value)}
             {...(session && session.user?.email ? { readOnly: true, disabled: true } : {})}
           />
-          {/* Cambié color fondo a nimbusGreen y texto a negro */}
           <button
             type="submit"
-            className="transition-all duration-150 font-bold px-8 py-4 rounded-2xl text-base border-2 shadow-md"
-            style={{
-              backgroundColor: nimbusGreen,
-              color: "#101013",
-              borderColor: nimbusGreenBorder,
-              boxShadow: "0 4px 18px 0 #86FF6B33",
-            }}
+            className="w-fit px-6 py-2 rounded-2xl font-bold text-base bg-[#86FF6B] border-2 border-[#53e14b] text-black shadow transition-all hover:bg-[#69cc54]"
+            style={{ boxShadow: "0 4px 18px 0 #86FF6B33" }}
             onMouseOver={e => (e.currentTarget.style.backgroundColor = nimbusGreenHover)}
             onMouseOut={e => (e.currentTarget.style.backgroundColor = nimbusGreen)}
           >
@@ -385,25 +370,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="w-full mt-28 text-center border-t border-orange-600/20 py-11 px-4 bg-zinc-100 text-zinc-500 font-light text-sm">
+      <footer className="w-full mt-28 text-center border-t border-orange-600/20 py-11 px-4 bg-white text-black font-light text-sm">
         <div className="max-w-3xl mx-auto flex flex-col items-center gap-2">
           {/* Usar solo el footer logo en el footer */}
           <img
             src="/logo-nimbus.png"
             alt="Nimbus Seguros"
-            className="h-8 mb-3"
-            style={{ maxWidth: 160 }}
+            className="h-8 mb-3 invert"
+            style={{ maxWidth: 160, filter: "invert(1)" }}
           />
-          <div>
+          <div className="text-black">
             NIMBUS BROKER DE SEGUROS S.A. <br />
             CUIT: 30-71612571-6 &middot; Mat. SSN N° 1647 <br />
             San Martín 518, Concepción del Uruguay, Entre Ríos
           </div>
-          <div>
-            Tel.: <a href="tel:+541152285577" className="text-orange-500 hover:underline">+54 11 5228-5577</a> &nbsp; &bull; &nbsp;
-            <a href="mailto:info@nimbusseguros.com" className="text-orange-500 hover:underline">info@nimbusseguros.com</a>
+          <div className="text-black">
+            Tel.: <a href="tel:+541152285577" className="text-orange-600 hover:underline">+54 11 5228-5577</a> &nbsp; &bull; &nbsp;
+            <a href="mailto:info@nimbusseguros.com" className="text-orange-600 hover:underline">info@nimbusseguros.com</a>
           </div>
-          <div>
+          <div className="text-black">
             <a href="https://www.nimbusseguros.com/politicas/defensa-del-asegurado.pdf" target="_blank" rel="noopener noreferrer" className="text-orange-500 hover:underline">
               Defensa del Asegurado
             </a>
@@ -416,7 +401,7 @@ export default function Home() {
               Denuncias / Reclamos SSN
             </a>
           </div>
-          <div className="mt-2 text-xs text-zinc-400">© {new Date().getFullYear()} Nimbus Broker de Seguros S.A. Todos los derechos reservados.</div>
+          <div className="mt-2 text-xs text-gray-500">© {new Date().getFullYear()} Nimbus Broker de Seguros S.A. Todos los derechos reservados.</div>
         </div>
       </footer>
     </main>
