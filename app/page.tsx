@@ -138,21 +138,4 @@ export default function Home() {
               En caso de que existiera un reclamo ante la entidad aseguradora y que el mismo no haya sido resuelto o haya sido desestimado, total o parcialmente, o que haya sido denegada su admisión, podrá comunicarse con la Superintendencia de Seguros de la Nación por teléfono al 0800-666-8400, correo electrónico a consultas@ssn.gob.ar o formulario disponible en la página argentina.gob.ar/ssn
             </div>
             <div style={{ fontSize: '11px', lineHeight: '1.8' }}>
-              <p style={{ margin: '0 0 10px 0', color: '#888888' }}>El Servicio de Atención al Asegurado está integrado por:</p>
-              <p style={{ margin: 0 }}><strong>Responsable:</strong> Felipe Ricardo Luis Perdomo</p>
-              <p style={{ margin: '0 0 15px 0' }}>Teléfono: +54 9 3442 57-1384</p>
-              <p style={{ margin: 0 }}><strong>Suplente:</strong> Guillermo Jose Joannas</p>
-              <p style={{ margin: '0 0 5px 0' }}>Teléfono: +54 9 3442 46-1715</p>
-            </div>
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '40px', fontSize: '11px', color: '#B0B0B0', borderTop: '1px solid #F5F5F5', paddingTop: '20px' }}>
-            © 2026 Nimbus Broker de Seguros S.A. — CUIT: 30-71612571-6. Todos los derechos reservados.
-          </div>
-
-        </div>
-      </footer>
-
-    </div>
-  );
-}
+              <p style={{ margin: '0 0 10px 0', color: '#888
