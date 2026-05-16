@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <div style={{ backgroundColor: '#FFFFFF', minHeight: '100vh', color: '#002D72', fontFamily: 'sans-serif', margin: 0, padding: 0 }}>
       
-      {/* HEADER - Logo de Nimbus a la izquierda, login dinámico a la derecha */}
+      {/* HEADER */}
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, backgroundColor: 'rgba(255, 255, 255, 0.95)', padding: '15px 30px', borderBottom: '1px solid #E5E5E5', zIndex: 100, boxShadow: '0 2px 10px rgba(0,0,0,0.02)', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SECCIÓN PRINCIPAL - HERO: SOLO CAFE SEGURO (CORREGIDO SIN "NIMBUS PRESENTA") */}
+      {/* HERO PRINCIPAL - CONTROLADO TOTALMENTE */}
       <main style={{ paddingTop: '160px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           
@@ -49,7 +49,6 @@ export default function Home() {
             Experiencia Exclusiva
           </span>
           
-          {/* Aquí se eliminó el "Nimbus presenta:" que causaba el problema */}
           <h1 style={{ fontSize: 'clamp(46px, 8vw, 82px)', fontWeight: '900', margin: '20px 0', lineHeight: '1.1', color: '#002D72', letterSpacing: '-0.02em' }}>
             CAFE SEGURO
           </h1>
@@ -64,7 +63,7 @@ export default function Home() {
 
         </div>
 
-        {/* CONTENEDOR DE PRÓXIMOS ENCUENTROS - CON NETWORKING AÑADIDO */}
+        {/* PROXIMOS ENCUENTROS */}
         <div style={{ margin: '80px auto 20px', maxWidth: '1100px', textAlign: 'left' }}>
           <h2 style={{ fontSize: '14px', fontWeight: '800', color: '#002D72', letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '30px', textAlign: 'center' }}>
             Próximos Encuentros
@@ -72,7 +71,7 @@ export default function Home() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '30px' }}>
             {[
-              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Espacio de networking, Big Data y Trawzabilidad en el mercado actual.' },
+              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Espacio de networking, Big Data y Trazabilidad en el mercado actual.' },
               { ciudad: 'Córdoba', fecha: '05 de septiembre, 2026', descripcion: 'Espacio de networking, innovación en procesos de suscripción digital.' },
               { ciudad: 'Santa Fe', fecha: '19 de septiembre, 2026', descripcion: 'Espacio de networking y transformación profunda del productor.' }
             ].map((item) => (
@@ -91,11 +90,10 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FOOTER INSTITUCIONAL REGLAMENTARIO DE LA SSN */}
+      {/* FOOTER */}
       <footer style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #EDE4D8', padding: '60px 40px 40px', marginTop: '120px', color: '#707070', fontSize: '12px', textAlign: 'left', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
-          {/* Fila superior: Redes Sociales y Canales de Contacto */}
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '80px', marginBottom: '40px' }}>
             <div>
               <p style={{ fontWeight: 'bold', marginBottom: '15px', color: '#333333', marginTop: 0 }}>Seguinos:</p>
@@ -114,7 +112,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Fila intermedia: Registros Técnicos y Enlaces Obligatorios */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', borderTop: '1px solid #EAF0F6', paddingTop: '30px', paddingBottom: '30px', alignItems: 'center' }}>
             <div>
               <p style={{ margin: 0, color: '#888888' }}>Nº de inscripción SSN</p>
@@ -132,7 +129,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Fila inferior: Cláusulas de Responsabilidad y Datos de Contacto Responsables */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '40px', borderTop: '1px solid #EAF0F6', paddingTop: '30px' }}>
             <div style={{ backgroundColor: '#F5F5F5', padding: '20px', borderRadius: '8px', lineHeight: '1.6', color: '#555555', fontSize: '11px' }}>
               La entidad aseguradora dispone de un <strong>Servicio de Atención al Asegurado</strong> que atenderá las consultas y reclamos que presenten los tomadores de seguros, asegurados, beneficiarios y/o derechohabientes. <br /><br />
