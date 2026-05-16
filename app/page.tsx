@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SECCIÓN PRINCIPAL - HERO: SOLO CAFE SEGURO */}
+      {/* SECCIÓN PRINCIPAL - HERO: SOLO CAFE SEGURO (CORREGIDO SIN "NIMBUS PRESENTA") */}
       <main style={{ paddingTop: '160px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           
@@ -49,6 +49,7 @@ export default function Home() {
             Experiencia Exclusiva
           </span>
           
+          {/* Aquí se eliminó el "Nimbus presenta:" que causaba el problema */}
           <h1 style={{ fontSize: 'clamp(46px, 8vw, 82px)', fontWeight: '900', margin: '20px 0', lineHeight: '1.1', color: '#002D72', letterSpacing: '-0.02em' }}>
             CAFE SEGURO
           </h1>
@@ -71,7 +72,7 @@ export default function Home() {
           
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))', gap: '30px' }}>
             {[
-              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Espacio de networking, Big Data y Trazabilidad en el mercado actual.' },
+              { ciudad: 'Rosario', fecha: '22 de agosto, 2026', descripcion: 'Espacio de networking, Big Data y Trawzabilidad en el mercado actual.' },
               { ciudad: 'Córdoba', fecha: '05 de septiembre, 2026', descripcion: 'Espacio de networking, innovación en procesos de suscripción digital.' },
               { ciudad: 'Santa Fe', fecha: '19 de septiembre, 2026', descripcion: 'Espacio de networking y transformación profunda del productor.' }
             ].map((item) => (
@@ -90,7 +91,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FOOTER INSTITUCIONAL REGLAMENTARIO DE LA SSN (CORREGIDO) */}
+      {/* FOOTER INSTITUCIONAL REGLAMENTARIO DE LA SSN */}
       <footer style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #EDE4D8', padding: '60px 40px 40px', marginTop: '120px', color: '#707070', fontSize: '12px', textAlign: 'left', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
