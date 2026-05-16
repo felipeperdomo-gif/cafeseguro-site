@@ -41,7 +41,7 @@ export default function Home() {
         </div>
       </header>
 
-      {/* SECCIÓN PRINCIPAL - HERO CORREGIDO: SOLO CAFE SEGURO */}
+      {/* SECCIÓN PRINCIPAL - HERO: SOLO CAFE SEGURO */}
       <main style={{ paddingTop: '160px', textAlign: 'center', paddingLeft: '20px', paddingRight: '20px', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '850px', margin: '0 auto' }}>
           
@@ -58,7 +58,7 @@ export default function Home() {
           </p>
           
           <div style={{ borderLeft: '4px solid #25D366', padding: '10px 20px', display: 'inline-block', fontStyle: 'italic', backgroundColor: '#F0FFF5', color: '#002D72', fontWeight: '500', borderRadius: '0 8px 8px 0' }}>
-            "El seguro se toma con café"
+            &ldquo;El seguro se toma con café&rdquo;
           </div>
 
         </div>
@@ -90,7 +90,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* FOOTER INSTITUCIONAL REGLAMENTARIO DE LA SSN */}
+      {/* FOOTER INSTITUCIONAL REGLAMENTARIO DE LA SSN (CORREGIDO) */}
       <footer style={{ backgroundColor: '#FFFFFF', borderTop: '1px solid #EDE4D8', padding: '60px 40px 40px', marginTop: '120px', color: '#707070', fontSize: '12px', textAlign: 'left', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
           
@@ -138,4 +138,21 @@ export default function Home() {
               En caso de que existiera un reclamo ante la entidad aseguradora y que el mismo no haya sido resuelto o haya sido desestimado, total o parcialmente, o que haya sido denegada su admisión, podrá comunicarse con la Superintendencia de Seguros de la Nación por teléfono al 0800-666-8400, correo electrónico a consultas@ssn.gob.ar o formulario disponible en la página argentina.gob.ar/ssn
             </div>
             <div style={{ fontSize: '11px', lineHeight: '1.8' }}>
-              <p style={{ margin: '0 0 10px 0', color: '#888
+              <p style={{ margin: '0 0 10px 0', color: '#888888' }}>El Servicio de Atención al Asegurado está integrado por:</p>
+              <p style={{ margin: 0 }}><strong>Responsable:</strong> Felipe Ricardo Luis Perdomo</p>
+              <p style={{ margin: '0 0 15px 0' }}>Teléfono: +54 9 3442 57-1384</p>
+              <p style={{ margin: 0 }}><strong>Suplente:</strong> Guillermo Jose Joannas</p>
+              <p style={{ margin: '0 0 5px 0' }}>Teléfono: +54 9 3442 46-1715</p>
+            </div>
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '40px', fontSize: '11px', color: '#B0B0B0', borderTop: '1px solid #F5F5F5', paddingTop: '20px' }}>
+            © 2026 Nimbus Broker de Seguros S.A. — CUIT: 30-71612571-6. Todos los derechos reservados.
+          </div>
+
+        </div>
+      </footer>
+
+    </div>
+  );
+}
